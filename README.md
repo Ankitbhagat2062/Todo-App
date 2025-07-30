@@ -1,16 +1,6 @@
 # Todo App
 
-<div align="center">
-
-<h2><strong>Todo App</strong></h2>
-
-<p><strong>Name:</strong> Ankit Bhagat</p>  
-<p><strong>GitHub:</strong> <a href="https://github.com/ankitbhagat2062"> ankitbhagat2062</a></p>  
-<p><strong>edX:</strong><a href="https://profile.edx.org/u/ankitbhagat2062"> ankitbhagat2062</a></p>  
-<p><strong>Location:</strong> Biratnagar, Nepal</p>  
-<p><strong>Date:</strong> July 30, 2025</p>
-
-</div>
+#### Video Demo:  <URL HERE>
 
 
 # Description
