@@ -80,7 +80,7 @@ const Login = () => {
                   Password
                 </label>
                 <div className="text-sm">
-                  <NavLink to="#" className="font-semibold text-indigo-600 hover:text-indigo-500">
+                  <NavLink to="/signin" className="font-semibold text-indigo-600 hover:text-indigo-500">
                     Forgot password?
                   </NavLink>
                 </div>

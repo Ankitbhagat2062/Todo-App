@@ -24,11 +24,11 @@ function App() {
   return (
     <Routes>
       <Route path="/" element={<Home />} />
-      <Route path="/login" element={<Login />} />
       <Route path="/about" element={<About />} />
+      <Route path="/todo" element={<Todo />} />
       <Route path="/calandar" element={<Calandar />} />
       <Route path="/signup" element={<Signup />} />
-      <Route path="Todo" element={<Todo />} />
+      <Route path="/login" element={<Login />} />
     </Routes>
   );
 }

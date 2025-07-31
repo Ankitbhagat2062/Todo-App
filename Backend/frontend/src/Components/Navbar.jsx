@@ -9,7 +9,7 @@ const navigation = [
     { name: 'Dashboard', href: '/', current: true },
     { name: 'About', href: '/about', current: false },
     { name: 'Todos', href: '/todo', current: false },
-    { name: 'Calendar', href: '/calandar', current: false },
+    { name: 'Calender', href: '/calandar', current: false },
 ]
 
 function classNames(...classes) {
@@ -98,7 +98,7 @@ const Navbar = () => {
                                     >
                                         <MenuItem>
                                             <NavLink
-                                                to="#"
+                                                to="/"
                                                 className="block px-4 py-2 text-sm text-gray-700 data-focus:bg-gray-100 data-focus:outline-hidden"
                                             >
                                                 Your Profile
@@ -106,7 +106,7 @@ const Navbar = () => {
                                         </MenuItem>
                                         <MenuItem>
                                             <NavLink
-                                                to="#"
+                                                to="/"
                                                 className="block px-4 py-2 text-sm text-gray-700 data-focus:bg-gray-100 data-focus:outline-hidden"
                                             >
                                                 Settings

@@ -86,11 +86,6 @@ const Signup = () => {
                 <label htmlFor="password" className="block text-sm/6 font-medium text-gray-900">
                   Password
                 </label>
-                <div className="text-sm">
-                  <NavLink to="#" className="font-semibold text-indigo-600 hover:text-indigo-500">
-                    Forgot password?
-                  </NavLink>
-                </div>
               </div>
               <div className="mt-2 flex items-center justify-center rounded-md bg-white text-base px-3 text-gray-900  placeholder:text-gray-400  sm:text-sm/6 outline-1 -outline-offset-1 outline-gray-300 cursor-pointer focus-within:outline-amber-500 focus-within:-outline-offset-2" tabIndex={0}>
                 <input
