@@ -1,13 +1,19 @@
+import mongoose from 'mongoose';
+import dotenv from 'dotenv';
 
-import mongoose from  'mongoose';
+dotenv.config();
 
 const conn = async () => {
-  try {
-    await mongoose.connect('mongodb+srv://ankitbhagat2062:Ankit%230987@todoapp.1by1np7.mongodb.net/');
-    console.log('MongoDB connected successfully!');
-  } catch (err) {
-    console.error('MongoDB connection error:', err);
-  }
+    try {
+        const mongoUri = process.env.MONGO_URI;
+        if (!mongoUri) {
+            throw new Error('MONGO_URI environment variable is not set');
+        }
+        await mongoose.connect(mongoUri);
+        console.log('MongoDB connected successfully!');
+    } catch (err) {
+        console.error('MongoDB connection error:', err);
+    }
 }
 
 export default conn;
