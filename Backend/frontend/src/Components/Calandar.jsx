@@ -647,7 +647,7 @@ const Calandar = () => {
               Cancel
             </button>
             <button type="submit" className="rounded bg-black px-4 py-1 text-white hover:bg-gray-900" >
-              {(showEditForm) ? 'Add Event' : 'Update Event'}
+             {isEditing ? 'Update Event' : 'Add Event'}
             </button>
           </div>
         </form>
