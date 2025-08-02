@@ -71,10 +71,14 @@ const Calandar = () => {
   const [showEditForm, setShowEditForm] = useState(false);
   const [EditForm, setEditForm] = useState(null);
   const userId = localStorage.getItem("userId");
+  const isLocal = window.location.hostname === "localhost";
+  const API_BASE_URL = isLocal
+    ? "http://localhost:3000" // or your local backend port
+    : "https://your-backend-api.onrender.com"; // ← update with your real backend URL
 
   React.useEffect(() => {
     if (userId) {
-      fetch(`${window.location.origin}/api/v3/getEvent/${userId}`)
+     fetch(`${API_BASE_URL}/api/v3/getEvent/${userId}`)
         .then(response => {
           if (!response.ok) {
             throw new Error('Network response was not ok');
@@ -102,7 +106,7 @@ const Calandar = () => {
           console.error('Error fetching events:', error);
         });
     }
-  }, [userId]);
+  }, [userId , API_BASE_URL]);
   // Handlers for simple calendar
   const onSimpleChange = (date) => {
     setSimpleDate(date);
@@ -174,7 +178,7 @@ const Calandar = () => {
     setShowEditForm(false)
     if (userId) {
       try {
-        const response = await fetch(`${window.location.origin}/api/v3/addEvent`, {
+        const response = await fetch(`${API_BASE_URL}/api/v3/addEvent`, {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
@@ -359,7 +363,7 @@ const Calandar = () => {
       closeEventDetails();
       if (userId) {
         try {
-          const response = await fetch(`${window.location.origin}/api/v3/deleteEvent/${EventId}`, {
+          const response = await fetch(`${API_BASE_URL}/api/v3/deleteEvent/${EventId}`, {
             method: 'DELETE',
             headers: {
               'Content-Type': 'application/json'
@@ -448,7 +452,7 @@ const Calandar = () => {
     setSelectedEvent(null)
     setShowEditForm(false)
     if (userId) {
-      await fetch(`${window.location.origin}/api/v3/updateEvent/${EventId}`, {
+      await fetch(`${API_BASE_URL}/api/v3/updateEvent/${EventId}`, {
         method: "PUT",
         headers: {
           "Content-Type": "application/json",
@@ -476,7 +480,7 @@ const Calandar = () => {
         });
     }
     (!userId) && toast('Please Sign up/login to update your Event');
-  }, [EditForm, EventId, simpleDate, newEventTitle, newEventStart, newEventEnd, newEventBody, newEventCategory, newEventColor, userId]);
+  }, [API_BASE_URL, EditForm, EventId, simpleDate, newEventTitle, newEventStart, newEventEnd, newEventBody, newEventCategory, newEventColor, userId]);
 
   return (
     <>
