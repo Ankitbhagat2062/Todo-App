@@ -12,6 +12,11 @@ import { MdCancel } from "react-icons/md";
 import { login } from '../features/user/userSlice';
 import { FaTimes } from 'react-icons/fa';
 const Todo = () => {
+    const isLocal = window.location.hostname === "localhost";
+  const API_BASE_URL = isLocal
+    ? "http://localhost:3000" // or your local backend port
+    : "https://your-backend-api.onrender.com"; // ← update with your real backend URL
+
   const dispatch = useDispatch();
   const Todobody = React.useRef(null);
   const userId = localStorage.getItem('userId');
@@ -73,7 +78,7 @@ const Todo = () => {
     setTodo("");
     setShowTodos(false)
     if (userId) {
-      const response = await fetch(`${window.location.origin}/api/v2/addTask/`, {
+      const response = await fetch(`${API_BASE_URL}/api/v2/addTask/`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'
@@ -106,7 +111,7 @@ const Todo = () => {
     if (userId) {
       const fetchData = async () => {
         try {
-          const response = await fetch(`${window.location.origin}/api/v2/getTask/${userId}`);
+          const response = await fetch(`${API_BASE_URL}/api/v2/getTask/${userId}`);
           if (!response.ok) {
             throw new Error(`HTTP error! status: ${response.status}`);
           }
@@ -131,11 +136,11 @@ const Todo = () => {
       };
       fetchData();
     }
-  }, [userId]);
+  }, [userId, API_BASE_URL]);
   // Delete todo by id
   const handleDelete = async (id, todoId) => {
     if (userId) {
-      await fetch(`${window.location.origin}/api/v2/deleteTask/${todoId}`, {
+      await fetch(`${API_BASE_URL}/api/v2/deleteTask/${todoId}`, {
         method: 'DELETE',
         headers: {
           'Content-Type': 'application/json'
@@ -173,7 +178,7 @@ const Todo = () => {
     const currentTitle = editTitle || (todoItem ? todoItem.title : title);
     const currentBody = editText || (todoItem ? todoItem.body : todo);
     if (userId) {
-      await fetch(`${window.location.origin}/api/v2/updateTask/${todoId}`, {
+      await fetch(`${API_BASE_URL}/api/v2/updateTask/${todoId}`, {
         method: 'PUT',
         headers: {
           'Content-Type': 'application/json'
