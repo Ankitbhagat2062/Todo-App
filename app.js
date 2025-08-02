@@ -29,8 +29,9 @@ app.use('/api/v2', list);
 app.use('/api/v3', Event);
 
 app.get('/', (req, res) => {
-  res.send({ message: 'Backend running' });
+  res.status(200).send('OK');
 });
+
 
 // Start the server
 app.listen(port, () => {
