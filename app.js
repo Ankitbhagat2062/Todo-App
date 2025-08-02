@@ -19,7 +19,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
 app.use(cors({
-  origin: ['http://localhost:5173', 'https://todo-4fbfcyk8c-ankitbhagat2062s-projects.vercel.app'],
+  origin: ['http://localhost:5173', 'https://todo-9qtomc9zr-ankitbhagat2062s-projects.vercel.app'],
   credentials: true
 }));
 
