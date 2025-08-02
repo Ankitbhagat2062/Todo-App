@@ -7,6 +7,11 @@ import { useDispatch ,} from 'react-redux';
 import { setUser,login } from '../features/user/userSlice';
 
 const Login = () => {
+    const isLocal = window.location.hostname === "localhost";
+  const API_BASE_URL = isLocal
+    ? "http://localhost:3000" // or your local backend port
+    : "https://your-backend-api.onrender.com"; // ← update with your real backend URL
+
   const navigate = useNavigate()
   const dispatch = useDispatch();
   const {
@@ -17,7 +22,7 @@ const Login = () => {
 
   const onSubmit = async (data) => {
     try {
-      const response = await fetch(`${window.location.origin}/api/v1/signin`, {
+      const response = await fetch(`${API_BASE_URL}/api/v1/signin`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'
