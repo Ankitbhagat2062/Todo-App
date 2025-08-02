@@ -3,18 +3,23 @@ import React, { useState } from 'react'
 import { useForm } from "react-hook-form"
 import { useNavigate } from 'react-router-dom'
 import { BiSolidHide, BiSolidShow } from "react-icons/bi";
-import {login} from '../features/user/userSlice'
-import {useDispatch} from 'react-redux'
+import { login } from '../features/user/userSlice'
+import { useDispatch } from 'react-redux'
 import { ToastContainer, toast } from 'react-toastify';
 const Signup = () => {
+  const isLocal = window.location.hostname === "localhost";
+  const API_BASE_URL = isLocal
+    ? "http://localhost:3000" // or your local backend port
+    : "https://your-backend-api.onrender.com"; // ← update with your real backend URL
+
   const dispatch = useDispatch()
-  const {  register, handleSubmit, watch, formState: { errors },} = useForm()
+  const { register, handleSubmit, watch, formState: { errors }, } = useForm()
   const navigate = useNavigate()
   const [showPassword, setShowPassword] = useState(false)
 
   const onSubmit = async (data) => {
     try {
-      const response = await fetch(`${window.location.origin}/api/v1/register`, {
+      const response = await fetch(`${API_BASE_URL}/api/v1/register`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'
@@ -38,7 +43,7 @@ const Signup = () => {
 
   return (
     <>
-    <ToastContainer />
+      <ToastContainer />
       <div className="flex min-h-full flex-1 flex-col justify-center px-6 py-12 lg:px-8">
         <div className="sm:mx-auto sm:w-full sm:max-w-sm">
           <img
@@ -108,9 +113,9 @@ const Signup = () => {
                   <BiSolidHide onClick={togglePasswordVisibility} className="cursor-pointer" />
                 )}
               </div>
-                {errors.password && (
-                  <div className="text-red-500">{errors.password.message}</div>
-                )}
+              {errors.password && (
+                <div className="text-red-500">{errors.password.message}</div>
+              )}
             </div>
             <div>
               <div className="flex items-center justify-between">
@@ -136,9 +141,9 @@ const Signup = () => {
                   <BiSolidHide onClick={togglePasswordVisibility} className="cursor-pointer" />
                 )}
               </div>
-                {errors.confirmPassword && (
-                  <div className="text-red-500">{errors.confirmPassword.message}</div>
-                )}
+              {errors.confirmPassword && (
+                <div className="text-red-500">{errors.confirmPassword.message}</div>
+              )}
             </div>
 
             <div>
