@@ -45,7 +45,7 @@ This is a frontend React application for a Todo App integrated with calendar eve
 
 <div align="center">
 
-## [![Demo Button](https://img.shields.io/badge/Live-Demo-blue?style=for-the-badge&logo=appveyor)](https://todo-oufneru9v-ankitbhagat2062s-projects.vercel.app/)
+## [![Demo Button](https://img.shields.io/badge/Live-Demo-blue?style=for-the-badge&logo=appveyor)](https://todo-4fbfcyk8c-ankitbhagat2062s-projects.vercel.app)
 
 </div>
 
