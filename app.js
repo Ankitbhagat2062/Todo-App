@@ -10,6 +10,7 @@ import cors from 'cors';
 
 const app = express();
 const port = process.env.PORT || 3000;
+const FRONTEND_URL = process.env.FRONTEND_URL
 
 // Connect to MongoDB
 conn();
@@ -19,7 +20,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
 app.use(cors({
-  origin: ['http://localhost:5173', 'https://todo-rbat25sa8-ankitbhagat2062s-projects.vercel.app'],
+  origin: [FRONTEND_URL , 'http://localhost:5173'],
   credentials: true
 }));
 
